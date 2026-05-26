@@ -1,0 +1,9 @@
+[
+  {
+    "id": 1,
+    "categoria": "Fauna",
+    "nome": "Bicho-Preguiça",
+    "descricao": "Espécie nativa da Mata Atlântica. Costuma habitar as florestas e áreas montanhosas, como o parque nacional.",
+    "imagem": "fauna-mico.jpg"
+  }
+]

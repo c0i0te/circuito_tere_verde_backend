@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Painel Administrativo - Terê Verde Online</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        .admin-form-container {
+            background-color: #f4f7f5;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: #2b5d3e;
+        }
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+        }
+        /* O input do tipo file tem um visual um pouco diferente por padrão, 
+           mas manterá o espaçamento correto graças a esta classe */
+        .btn-submit {
+            background-color: #2b5d3e;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-weight: 600;
+            font-family: 'Poppins', sans-serif;
+            transition: background 0.3s;
+            font-size: 16px;
+        }
+        .btn-submit:hover {
+            background-color: #1e422c;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <a href="../index.html" class="logo">Terê Verde</a>
+            <nav>
+                <ul>
+                    <li><a href="../trilhas.html">Trilhas</a></li>
+                    <li><a href="../eventos.html">Eventos</a></li>
+                    <li><a href="../biodiversidade.html">Biodiversidade</a></li>
+                    <li><a href="../index.html" class="login-button">Sair</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="page-title">
+            <div class="container">
+                <h1>Painel Administrativo</h1>
+                <p>Bem-vindo! Gerencie o conteúdo do site abaixo.</p>
+            </div>
+        </section>
+    
+        <section class="content-page">
+            <div class="container">
+                
+                <div class="admin-form-container">
+                    <h2 class="section-subtitle">Cadastrar Novo Evento</h2>
+                    <form id="form-evento" <form id="form-evento">
+                        <div class="form-group">
+                            <label for="titulo-evento">Título do Evento</label>
+                            <input type="text" id="titulo-evento" placeholder="Ex: Observação de Aves Noturnas" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="data-evento">Data (Mês e Dia)</label>
+                            <input type="text" id="data-evento" placeholder="Ex: JUL 20" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc-evento">Descrição do Evento</label>
+                            <textarea id="desc-evento" rows="3" placeholder="Digite os detalhes e informações de inscrição..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="img-evento">Selecione a Imagem</label>
+                            <input type="file" id="img-evento" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Salvar Evento</button>
+                    </form>
+                </div>
+
+                <div class="admin-form-container">
+                    <h2 class="section-subtitle">Cadastrar Nova Trilha</h2>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="nome-trilha">Nome da Trilha</label>
+                            <input type="text" id="nome-trilha" placeholder="Ex: Trilha da Pedra do Sino" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="dif-trilha">Dificuldade</label>
+                            <select id="dif-trilha" required>
+                                <option value="Leve">Leve</option>
+                                <option value="Moderada">Moderada</option>
+                                <option value="Alta">Alta</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc-trilha">Descrição da Trilha</label>
+                            <textarea id="desc-trilha" rows="3" placeholder="Fale sobre o trajeto e a vista..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="img-trilha">Selecione a Imagem</label>
+                            <input type="file" id="img-trilha" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Salvar Trilha</button>
+                    </form>
+                </div>
+
+                <div class="admin-form-container">
+                    <h2 class="section-subtitle">Cadastrar Biodiversidade</h2>
+                    <form action="#" method="POST">
+                        <div class="form-group">
+                            <label for="tipo-bio">Categoria</label>
+                            <select id="tipo-bio" required>
+                                <option value="" disabled selected>Selecione se é Fauna ou Flora...</option>
+                                <option value="Fauna">Fauna (Animais)</option>
+                                <option value="Flora">Flora (Plantas)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="nome-bio">Nome da Espécie</label>
+                            <input type="text" id="nome-bio" placeholder="Ex: Bicho-Preguiça ou Orquídea" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="desc-bio">Descrição da Espécie</label>
+                            <textarea id="desc-bio" rows="3" placeholder="Fale sobre as características, onde habita..." required></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="img-bio">Selecione a Imagem</label>
+                            <input type="file" id="img-bio" accept="image/*" required>
+                        </div>
+                        <button type="submit" class="btn-submit">Salvar Biodiversidade</button>
+                    </form>
+                </div>
+                </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Terê Verde Online. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="../js/script.js?v=1"></script>
+
+</body>
+</html>

@@ -1,0 +1,8 @@
+# Dependências do Node.js
+node_modules
+
+# Arquivos de variáveis de ambiente (Senhas e Configurações)
+.env
+
+# Arquivos de log de erros do npm (caso ocorram)
+npm-debug.log

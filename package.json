@@ -1,0 +1,24 @@
+{
+  "name": "tere-verde-online",
+  "version": "1.0.0",
+  "description": "Plataforma digital informativa sobre os parques naturais de Teresópolis-RJ, desenvolvida como MVP Front-End em React, com foco em ecoturismo, educação ambiental e gestão de conteúdo por administradores.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rodrigocrf/tere-verde-online.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rodrigocrf/tere-verde-online/issues"
+  },
+  "homepage": "https://github.com/rodrigocrf/tere-verde-online#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "multer": "^2.1.1"
+  }
+}
