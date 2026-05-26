@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Terê Verde Online - Login</title>
+
+    <!-- Link para o arquivo CSS principal -->
+    <link rel="stylesheet" href="css/style.css">
+    
+    <!-- Favicon SVG: Ícone na guia do navegador. Certifique-se que 'logotv.svg' está em 'images/' -->
+    <link rel="icon" href="images/logotv.svg" type="image/svg+xml">
+
+    <!-- Links para importar a fonte Poppins do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="login-page">
+    <!-- Cabeçalho da página -->
+    <header>
+        <div class="container">
+            <!-- LOGO DO SITE: Imagem SVG e texto "Terê Verde" juntos, como um link para a página inicial -->
+            <!-- Importante: Esta é a única estrutura de logo no cabeçalho. -->
+            <a href="index.html" class="logo-with-image">
+                <img src="images/logotv.svg" alt="Logo Projeto Terê Verde">
+                <span>Terê Verde</span>
+            </a>
+            
+            <!-- Navegação principal do site -->
+            <nav>
+                <ul>
+                    <li><a href="trilhas.html">Trilhas</a></li>
+                    <li><a href="eventos.html">Eventos</a></li>
+                    <li><a href="biodiversidade.html">Biodiversidade</a></li>
+                    <li><a href="login.html" class="login-button">Admin</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Conteúdo principal da página de login -->
+    <main class="login-main">
+        <section class="login-section">
+            <div class="login-container">
+                <!-- Formulário de Login: Adicionado 'id' para ser manipulado via JavaScript -->
+                <form class="login-form" id="adminLoginForm">
+                    <h2>Bem-vindo(a) de volta!</h2>
+                    <p class="login-subtitle">Faça login para acessar o painel administrativo.</p>
+                    <div class="form-group">
+                        <label for="username">Usuário:</label>
+                        <input type="text" id="username" name="username" required autocomplete="username">
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Senha:</label>
+                        <input type="password" id="password" name="password" required autocomplete="current-password">
+                    </div>
+                    <button type="submit" class="button">Entrar</button>
+                    <p class="forgot-password"><a href="#">Esqueceu sua senha?</a></p>
+
+                    <!-- Mensagem de status do login: Será atualizada pelo JavaScript -->
+                    <div id="loginMessage" class="login-status-message"></div>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Rodapé da página -->
+    <footer>
+        <div class="container">
+            <!-- LOGO NO RODAPÉ -->
+            <a href="index.html" class="footer-logo">
+                <img src="images/logotv.svg" alt="Logo Projeto Terê Verde">
+            </a>
+            <p>&copy; 2025 Terê Verde Online. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Link para o arquivo JavaScript principal -->
+    <script src="js/script.js"></script>
+</body>
+</html>

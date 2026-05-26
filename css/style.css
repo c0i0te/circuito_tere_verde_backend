@@ -1,0 +1,1054 @@
+/* Importa a fonte Poppins do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+/* ---- RESET E VARIÁVEIS GLOBAIS ---- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Garante que html e body ocupem a altura total da tela para o layout flex da página de login */
+html, body {
+    height: 100%; /* Novo: Essencial para que o body.login-page com flexbox funcione corretamente */
+}
+
+:root {
+    /* Paleta de cores principal para o tema 'Terê Verde' */
+    --primary-color: #0A6D3A; /* Verde floresta mais escuro, usado para títulos e elementos chave */
+    --secondary-color: #39A86E; /* Verde esmeralda, para botões e destaques secundários */
+    --tertiary-color: #F7A823; /* Laranja/Amarelo vibrante, para elementos de atenção e hover */
+    
+    /* Cores de fundo e texto */
+    --background-color: #F8FBF8; /* Fundo geral claro */
+    --text-color: #2F2F2F; /* Cor principal do texto */
+    --light-text-color: #ffffff; /* Cor de texto claro para fundos escuros */
+
+    /* Sombras para profundidade e destaque */
+    --shadow-light: rgba(0, 0, 0, 0.08);
+    --shadow-medium: rgba(0, 0, 0, 0.15);
+
+    /* Cores adicionais específicas para o fundo da página de login (gradiente) */
+    --gradient-color-1: #0A6D3A; 
+    --gradient-color-2: #39A86E; 
+    --gradient-color-3: #F7A823; 
+    --gradient-color-4: #054C28; 
+
+    /* Cores de texto e fundo para o formulário de login */
+    --login-text-color: #333; 
+    --login-link-color: var(--primary-color); 
+    --login-background-form: rgba(255, 255, 255, 0.95); 
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.7; /* Espaçamento entre linhas para melhor legibilidade */
+    overflow-x: hidden; /* Evita rolagem horizontal indesejada */
+    /* Removido min-height: 100vh aqui, pois html e body já estão em 100% de altura */
+}
+
+.container {
+    max-width: 1100px; /* Largura máxima padrão para o conteúdo */
+    margin: 0 auto; /* Centraliza o container */
+    padding: 0 20px; /* Espaçamento lateral interno */
+}
+
+/* ESTILOS ESPECÍFICOS PARA A PÁGINA DE LOGIN */
+body.login-page {
+    /* overflow: hidden; foi movido para o body global */
+    display: flex;
+    flex-direction: column;
+    /* min-height: 100vh; também pode ser removido aqui se html e body estiverem em 100% de altura */
+    background: 
+        radial-gradient(circle at 10% 20%, var(--gradient-color-1) 0%, transparent 40%),
+        radial-gradient(circle at 90% 80%, var(--gradient-color-2) 0%, transparent 40%),
+        radial-gradient(circle at 30% 70%, var(--gradient-color-3) 0%, transparent 40%),
+        radial-gradient(circle at 70% 30%, var(--gradient-color-4) 0%, transparent 40%);
+    background-size: 200% 200%; 
+    animation: moveGradient 20s ease infinite alternate; 
+}
+
+@keyframes moveGradient {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.login-page header,
+.login-page footer {
+    background-color: rgba(255, 255, 255, 0.9); 
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: relative; 
+    z-index: 1000;
+    /* Adicionado flex-shrink: 0 para que cabeçalho e rodapé não diminuam de tamanho */
+    flex-shrink: 0; 
+}
+
+.login-main {
+    flex-grow: 1; /* Faz o main ocupar todo o espaço restante disponível */
+    display: flex;
+    justify-content: center; /* Centraliza horizontalmente o conteúdo (login-container) */
+    align-items: center; /* Centraliza verticalmente o conteúdo (login-container) */
+    padding: 2rem; /* Padding para caso a tela seja pequena */
+}
+
+.login-container {
+    perspective: 1000px; 
+    animation: fadeInSlideUp 0.8s ease-out forwards; 
+}
+
+/* FIM DOS ESTILOS ESPECÍFICOS PARA A PÁGINA DE LOGIN */
+
+/* ---- ANIMAÇÕES GLOBAIS (AO ROLAR) ---- */
+.fade-in-on-scroll {
+    opacity: 0; 
+    transform: translateY(20px); 
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out; 
+}
+
+.fade-in-on-scroll.animate {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+/* ---- CABEÇALHO E NAVEGAÇÃO ---- */
+header {
+    background-color: var(--light-text-color);
+    padding: 1rem 0;
+    box-shadow: 0 4px 15px var(--shadow-light); 
+    position: sticky; 
+    top: 0;
+    z-index: 1000; 
+    backdrop-filter: blur(5px); 
+    background-color: rgba(255, 255, 255, 0.9); 
+}
+
+header .container {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+}
+
+.logo-with-image {
+    display: flex; 
+    align-items: center; 
+    text-decoration: none; 
+    gap: 10px; 
+    color: var(--primary-color); 
+    font-size: 1.7rem; 
+    font-weight: 700; 
+    transition: color 0.3s ease; 
+}
+
+.logo-with-image:hover {
+    color: var(--secondary-color); 
+}
+
+.logo-with-image img {
+    width: 60px; 
+    height: 60px; 
+    object-fit: contain; 
+    transition: transform 0.3s ease; 
+}
+
+.logo-with-image:hover img {
+    transform: scale(1.1); 
+}
+
+nav ul {
+    list-style: none; 
+    display: flex; 
+    gap: 2.5rem; 
+}
+
+nav a {
+    text-decoration: none; 
+    color: var(--text-color); 
+    font-weight: 500;
+    position: relative; 
+    transition: color 0.3s ease; 
+}
+
+nav a::after {
+    content: '';
+    position: absolute;
+    width: 0; 
+    height: 2px;
+    background-color: var(--secondary-color); 
+    bottom: -5px; 
+    left: 0;
+    transition: width 0.3s ease-out; 
+}
+
+nav a:hover::after {
+    width: 100%; 
+}
+
+nav a:hover {
+    color: var(--secondary-color); 
+}
+
+.login-button {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    padding: 0.7rem 1.4rem;
+    border-radius: 50px; 
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+}
+
+.login-button:hover {
+    background-color: var(--tertiary-color); 
+    transform: translateY(-2px); 
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+.login-button:active {
+    transform: translateY(0); 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- CONTEÚDO PRINCIPAL (MAIN) - GLOBAL ---- */
+main {
+    padding-top: 0; 
+}
+
+.hero {
+    /* GRADIENTE E IMAGEM DE FUNDO */
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.7)), 
+                      url('../images/dedo-de-deus.jpg');
+    
+    /* PROPRIEDADES DE CONTROLE DO FUNDO */
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* Ajuste fino da imagem de fundo */
+    background-position: center 40%;
+
+    /* --- Resto do seu código original --- */
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 8rem 0;
+    position: relative;
+    display: flex; 
+    align-items: center;
+    justify-content: center;
+    min-height: 50vh; 
+    overflow: hidden; 
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at center, rgba(255,255,255,0.05) 0%, transparent 70%);
+    pointer-events: none;
+    animation: pulseBackground 15s infinite alternate ease-in-out;
+}
+
+@keyframes pulseBackground {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+}
+
+.hero-content {
+    z-index: 1; 
+    animation: fadeInScale 1s ease-out forwards; 
+    animation-delay: 0.3s;
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+@keyframes fadeInScale {
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    margin-bottom: 1.5rem;
+    font-weight: 700;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.4); 
+    line-height: 1.1;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin: 0 auto;
+    opacity: 0.9;
+    text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+}
+
+.features {
+    padding: 4rem 0;
+    text-align: center;
+    position: relative;
+}
+
+.features h2 {
+    margin-bottom: 3rem;
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    position: relative;
+    display: inline-block;
+    padding-bottom: 10px;
+}
+
+.features h2::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    width: 60px;
+    height: 4px;
+    background-color: var(--tertiary-color);
+    border-radius: 2px;
+    animation: growUnderline 1s ease-out forwards;
+    animation-delay: 0.5s;
+    opacity: 0;
+}
+
+@keyframes growUnderline {
+    to {
+        width: 100px;
+        opacity: 1;
+    }
+}
+
+.cards-container {
+    display: flex;
+    justify-content: center;
+    gap: 2.5rem; 
+    flex-wrap: wrap; 
+}
+
+.card {
+    background-color: #fff;
+    padding: 2.5rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    width: 320px; 
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(45deg, rgba(255,255,255,0.1) 0%, transparent 100%);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+    z-index: 0;
+}
+
+.card:hover::before {
+    transform: translateX(0%);
+}
+
+.card:hover {
+    transform: translateY(-8px) scale(1.02); 
+    box-shadow: 0 12px 35px var(--shadow-medium);
+}
+
+.card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1.2rem;
+    font-size: 1.4rem;
+    position: relative;
+    z-index: 1;
+}
+
+.card p {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+.button {
+    display: inline-block;
+    background-color: var(--secondary-color);
+    color: var(--light-text-color);
+    padding: 0.8rem 1.8rem;
+    border-radius: 50px;
+    text-decoration: none;
+    margin-top: 1.5rem;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    text-transform: uppercase; 
+    letter-spacing: 0.5px; 
+    position: relative;
+    overflow: hidden; 
+    z-index: 1;
+    border: none; 
+    cursor: pointer;
+}
+
+.button .ripple {
+    position: absolute;
+    border-radius: 50%;
+    transform: scale(0);
+    opacity: 1;
+    background-color: rgba(255, 255, 255, 0.7); 
+    animation-fill-mode: forwards;
+    pointer-events: none; 
+    top: 50%;
+    left: 50%;
+    transform-origin: center center;
+    width: 0;
+    height: 0;
+}
+
+@keyframes ripple-effect {
+    to {
+        transform: scale(2.5); 
+        opacity: 0;
+    }
+}
+
+.button:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.button:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* ---- PÁGINAS INTERNAS GERAL ---- */
+.page-title {
+    text-align: center;
+    margin: 4rem 0 3rem;
+    position: relative;
+}
+
+.page-title h1 {
+    font-size: 3rem;
+    color: var(--primary-color);
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.1);
+    position: relative;
+    display: inline-block;
+}
+
+.page-title h1::before,
+.page-title h1::after {
+    content: '';
+    position: absolute;
+    height: 4px;
+    background-color: var(--tertiary-color);
+    border-radius: 2px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 0; 
+    transition: width 0.6s ease-out; 
+}
+
+.page-title h1::before {
+    left: -20px;
+}
+
+.page-title h1::after {
+    right: -20px;
+}
+
+.page-title h1.animate-title::before {
+    width: 60px; 
+    left: -80px; 
+}
+
+.page-title h1.animate-title::after {
+    width: 60px; 
+    right: -80px; 
+}
+
+
+/* ---- PÁGINA TRILHAS (LAYOUT LADO A LADO) ---- */
+.content-page .container {
+    max-width: 950px;
+}
+
+.content-item {
+    background-color: #fff;
+    margin-bottom: 3rem;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    border-radius: 12px;
+    overflow: hidden;
+    display: flex; 
+    align-items: center;
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    opacity: 0; 
+    transform: translateY(30px); 
+}
+
+.content-item.animate { 
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.content-item:nth-child(even) { 
+    flex-direction: row-reverse;
+}
+
+.content-item:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px var(--shadow-medium);
+}
+
+.content-image {
+    flex: 0 0 45%; 
+    height: 280px; 
+}
+
+.content-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; 
+    display: block;
+    transition: transform 0.4s ease-out; 
+}
+
+.content-item:hover .content-image img {
+    transform: scale(1.05); 
+}
+
+.content-text {
+    flex: 1; 
+    padding: 2.5rem;
+}
+
+.content-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+    font-weight: 600;
+}
+
+/* ---- PÁGINA BIODIVERSIDADE (GALERIA) ---- */
+.section-subtitle {
+    font-size: 2.2rem;
+    color: var(--primary-color);
+    border-bottom: 3px solid var(--secondary-color);
+    padding-bottom: 0.8rem;
+    margin-bottom: 2.5rem;
+    margin-top: 3.5rem;
+    font-weight: 600;
+    position: relative;
+    display: inline-block;
+}
+
+.section-subtitle:first-of-type {
+    margin-top: 0;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+    gap: 2.5rem;
+}
+
+.gallery-card {
+    background: #fff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    cursor: pointer;
+    opacity: 0; 
+    transform: translateY(20px); 
+}
+
+.gallery-card.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.gallery-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 12px 35px var(--shadow-medium);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out;
+}
+
+.gallery-card:hover img {
+    transform: scale(1.05);
+}
+
+.gallery-card-text {
+    padding: 1.8rem;
+}
+
+.gallery-card-text h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.6rem;
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+.gallery-card-text p {
+    font-size: 0.9rem;
+}
+
+/* ---- PÁGINA EVENTOS (LISTA) ---- */
+.event-container {
+    max-width: 850px;
+}
+
+.event-card {
+    background-color: #fff;
+    border-radius: 12px;
+    margin-bottom: 2.5rem;
+    box-shadow: 0 8px 25px var(--shadow-light);
+    overflow: hidden;
+    transition: box-shadow 0.4s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+    display: flex;
+    opacity: 0;
+    transform: translateX(-30px);
+}
+
+.event-card.animate {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.event-card:hover {
+    box-shadow: 0 12px 35px var(--shadow-medium);
+    transform: translateY(-5px);
+}
+
+.event-card .event-image {
+    flex: 0 0 35%;
+}
+
+.event-card .event-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease-out;
+}
+
+.event-card:hover .event-image img {
+    transform: scale(1.05);
+}
+
+.ajuste-topo {
+    object-position: 50% 25%;
+}
+    
+.event-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 2rem;
+}
+
+.event-date {
+    background-color: var(--tertiary-color);
+    color: var(--light-text-color);
+    border-radius: 10px;
+    text-align: center;
+    padding: 1.2rem;
+    font-weight: 700;
+    line-height: 1.1;
+    min-width: 90px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: background-color 0.3s ease;
+}
+.event-card:hover .event-date {
+    background-color: var(--primary-color);
+}
+
+.event-date span {
+    font-size: 0.95rem;
+    display: block;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.event-date strong {
+    font-size: 2.5rem;
+    display: block;
+}
+
+.event-info h3 {
+    color: var(--primary-color);
+    margin-bottom: 0.6rem;
+    font-size: 1.6rem;
+    font-weight: 600;
+}
+.event-info p {
+    font-size: 0.95rem;
+}
+
+.event-details {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 2rem;
+    gap: 2.5rem;
+}
+
+.event-date-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.event-time {
+    background-color: #fff;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: bold;
+    margin-top: 8px;
+    padding: 4px 6px;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex;
+    align-items: center;
+}
+
+
+
+.event-time::before {
+    content: '';
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    background-color: var(--primary-color);
+    mask-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill=%22currentColor%22><path d="M12 2C6.486 2 2 6.486 2 12s4.486 10 10 10 10-4.486 10-10S17.514 2 12 2zm0 18c-4.411 0-8-3.589-8-8s3.589-8 8-8 8 3.589 8 8-3.589 8-8 8z"/><path d="M13 7h-2v6h6v-2h-4V7z"/></svg>');
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    vertical-align: middle;
+    margin-right: 6px;
+}
+
+
+/* ---- LOGIN (REESTILIZADO E COM NOVAS MENSAGENS DE STATUS) ---- */
+.login-form {
+    max-width: 480px;
+    width: 90%;
+    background: var(--login-background-form);
+    padding: 3.5rem 3rem;
+    border-radius: 18px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(12px); 
+    border: 1px solid rgba(255, 255, 255, 0.4);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    color: var(--login-text-color);
+    text-align: center;
+}
+
+.login-container:hover .login-form {
+    transform: rotateY(3deg) scale(1.01);
+}
+.login-form {
+    transition: transform 0.4s ease-out, box-shadow 0.4s ease-out;
+}
+.login-container:not(:hover) .login-form {
+    transform: rotateY(0deg) scale(1);
+}
+
+.login-form h2 {
+    font-size: 2.5rem;
+    color: var(--primary-color);
+    margin-bottom: 0.8rem;
+    font-weight: 700;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.05);
+}
+
+.login-subtitle {
+    font-size: 1rem;
+    color: var(--login-text-color);
+    margin-bottom: 2rem;
+    opacity: 0.8;
+}
+
+.form-group {
+    margin-bottom: 1.8rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.1rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    border: 1px solid rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: var(--login-text-color);
+    background-color: rgba(255, 255, 255, 0.7);
+    transition: border-color 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: rgba(0, 0, 0, 0.4);
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: var(--secondary-color);
+    box-shadow: 0 0 0 4px rgba(57, 168, 110, 0.3);
+    background-color: var(--light-text-color);
+}
+
+.login-form .button {
+    width: 100%;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    margin-top: 2.5rem;
+    padding: 1rem 1.8rem;
+}
+
+.forgot-password {
+    margin-top: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.forgot-password a {
+    color: var(--login-link-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.forgot-password a:hover {
+    color: var(--secondary-color);
+    text-decoration: underline;
+}
+
+.login-status-message {
+    margin-top: 20px;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 500;
+    text-align: center;
+    opacity: 0; 
+    transform: translateY(10px); 
+    transition: opacity 0.5s ease-out, transform 0.5s ease-out; 
+}
+
+.login-status-message.show {
+    opacity: 1; 
+    transform: translateY(0); 
+}
+
+.login-status-message.success {
+    background-color: #d4edda; 
+    color: #155724; 
+    border: 1px solid #c3e6cb;
+}
+
+.login-status-message.error {
+    background-color: #f8d7da; 
+    color: #721c24; 
+    border: 1px solid #f5c6cb;
+}
+
+.login-status-message.loading {
+    background-color: #cfe2ff; 
+    color: #004085; 
+    border: 1px solid #b8daff;
+}
+
+/* ---- RODAPÉ ---- */
+footer {
+    background-color: var(--primary-color);
+    color: var(--light-text-color);
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.login-page footer {
+    margin-top: 0; 
+}
+
+.footer-logo {
+    display: block;
+    width: 65px;  
+    height: 65px; 
+    margin-left: auto;   
+    margin-right: auto;  
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.footer-logo:hover {
+    transform: scale(1.1);
+}
+
+footer a {
+    color: var(--tertiary-color);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+footer a:hover {
+    color: var(--secondary-color);
+}
+
+
+/* ---- RESPONSIVIDADE ---- */
+@media (max-width: 992px) {
+    .hero h1 { font-size: 3rem; }
+    .hero p { font-size: 1.1rem; }
+    .cards-container { gap: 1.5rem; }
+    .card { width: 280px; padding: 2rem; }
+    .content-item { flex-direction: column; } 
+    .content-item:nth-child(even) { flex-direction: column; } 
+    .content-image { flex-basis: auto; height: 250px; }
+    .event-card { flex-direction: column; } 
+    .event-card .event-image { flex-basis: auto; height: 200px; }
+    .event-details { flex-direction: row; align-items: center; gap: 1.5rem; } 
+
+    .login-form { padding: 2.5rem 2rem; max-width: 400px; }
+    .login-form h2 { font-size: 2.2rem; }
+    .form-group label { font-size: 1rem; }
+    .form-group input { padding: 0.8rem 1rem; font-size: 1rem; }
+    .login-form .button { font-size: 1.1rem; padding: 0.9rem 1.5rem; }
+
+    .logo-with-image {
+        font-size: 1.5rem; 
+        gap: 8px; 
+    }
+    .logo-with-image img {
+        width: 35px; 
+        height: 35px;
+    }
+    .footer-logo { width: 45px; height: 45px; }
+}
+
+@media (max-width: 768px) {
+    header .container { flex-direction: column; gap: 1rem; } 
+    nav ul { flex-direction: column; text-align: center; gap: 1rem; width: 100%; } 
+    
+    .hero { padding: 6rem 0; }
+    .hero h1 { font-size: 2.5rem; }
+    .hero p { font-size: 1rem; padding: 0 10px; }
+
+    .features h2 { font-size: 2rem; }
+    .cards-container { flex-direction: column; align-items: center; } 
+    .card { width: 90%; max-width: 350px; } 
+
+    .page-title h1 { font-size: 2.2rem; }
+    .page-title h1.animate-title::before,
+    .page-title h1.animate-title::after { width: 30px; left: -40px; right: -40px; }
+
+    .content-text { padding: 1.5rem; }
+    .content-text h3 { font-size: 1.5rem; }
+
+    .section-subtitle { font-size: 1.8rem; }
+    .gallery-grid { grid-template-columns: 1fr; } 
+    .gallery-card img { height: 200px; }
+
+    .event-details { flex-direction: column; align-items: flex-start; padding: 1.5rem; } 
+    .event-date { min-width: unset; width: 100%; padding: 0.8rem; }
+    .event-date strong { font-size: 2rem; }
+
+    .login-main { padding: 1rem; }
+    .login-form { 
+        padding: 2rem 1.5rem; 
+        max-width: 350px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2); 
+    }
+    .login-form h2 { font-size: 2rem; }
+    .login-subtitle { font-size: 0.9rem; }
+    .form-group label { font-size: 0.95rem; }
+    .form-group input { padding: 0.7rem 0.9rem; font-size: 0.95rem; }
+    .login-form .button { font-size: 1rem; padding: 0.8rem 1.2rem; }
+    .forgot-password { font-size: 0.85rem; }
+
+    .logo-with-image {
+        font-size: 1.4rem;
+        gap: 6px;
+    }
+    .logo-with-image img {
+        width: 30px;
+        height: 30px;
+    }
+    .footer-logo { width: 40px; height: 40px; }
+}
+
+@media (max-width: 480px) {
+    .logo-with-image { font-size: 1.2rem; gap: 5px; }
+    .logo-with-image img { width: 25px; height: 25px; }
+    .login-button { padding: 0.6rem 1.2rem; font-size: 0.9rem; }
+    .hero h1 { font-size: 2rem; }
+    .hero p { font-size: 0.9rem; }
+    .features h2 { font-size: 1.8rem; }
+    .card { padding: 1.8rem; }
+    .card h3 { font-size: 1.2rem; }
+    .button { padding: 0.7rem 1.5rem; font-size: 0.9rem; }
+    .page-title h1 { font-size: 1.8rem; }
+    .page-title h1.animate-title::before,
+    .page-title h1.animate-title::after { width: 20px; left: -30px; right: -30px; }
+    .content-text h3 { font-size: 1.3rem; }
+    .section-subtitle { font-size: 1.6rem; }
+    .event-info h3 { font-size: 1.4rem; }
+    
+    .login-form { padding: 1.5rem; border-radius: 12px; }
+    .login-form h2 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .login-subtitle { margin-bottom: 1.5rem; }
+    .form-group { margin-bottom: 1.2rem; }
+    .form-group label { font-size: 0.9rem; margin-bottom: 0.5rem; }
+    .form-group input { padding: 0.6rem 0.8rem; }
+    .login-form .button { font-size: 0.95rem; padding: 0.7rem 1rem; margin-top: 1.8rem; }
+    
+    .footer-logo { width: 35px; height: 35px; }
+}
+
+.login-page footer {
+    display: none;
+}
