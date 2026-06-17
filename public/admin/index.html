@@ -57,7 +57,10 @@
 <body>
     <header>
         <div class="container">
-            <a href="../index.html" class="logo">Terê Verde</a>
+            <a href="../index.html" class="logo-with-image">
+                <img src="../images/logotv.svg" alt="Logo Projeto Terê Verde">
+                <span>Terê Verde</span>
+            </a>
             <nav>
                 <ul>
                     <li><a href="../trilhas.html">Trilhas</a></li>
@@ -82,7 +85,7 @@
                 
                 <div class="admin-form-container">
                     <h2 class="section-subtitle">Cadastrar Novo Evento</h2>
-                    <form id="form-evento" <form id="form-evento">
+                    <form id="form-evento">
                         <div class="form-group">
                             <label for="titulo-evento">Título do Evento</label>
                             <input type="text" id="titulo-evento" placeholder="Ex: Observação de Aves Noturnas" required>
@@ -105,7 +108,7 @@
 
                 <div class="admin-form-container">
                     <h2 class="section-subtitle">Cadastrar Nova Trilha</h2>
-                    <form action="#" method="POST">
+                    <form id="form-trilha">
                         <div class="form-group">
                             <label for="nome-trilha">Nome da Trilha</label>
                             <input type="text" id="nome-trilha" placeholder="Ex: Trilha da Pedra do Sino" required>
@@ -132,7 +135,7 @@
 
                 <div class="admin-form-container">
                     <h2 class="section-subtitle">Cadastrar Biodiversidade</h2>
-                    <form action="#" method="POST">
+                    <form id="form-biodiversidade">
                         <div class="form-group">
                             <label for="tipo-bio">Categoria</label>
                             <select id="tipo-bio" required>
@@ -155,6 +158,13 @@
                         </div>
                         <button type="submit" class="btn-submit">Salvar Biodiversidade</button>
                     </form>
+                </div>
+
+                <div class="admin-form-container">
+                    <h2 class="section-subtitle">Inscrições Realizadas</h2>
+                    <div id="inscricoes-lista-container">
+                        <p>Carregando inscrições...</p>
+                    </div>
                 </div>
                 </div>
         </section>

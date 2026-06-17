@@ -1,9 +1,23 @@
 [
   {
     "id": 1,
-    "titulo": "Observação de Aves Noturnas",
-    "data": "JUL 20",
-    "descricao": "Uma caminhada guiada para observar as aves de hábitos noturnos da região. Inscrições abertas!",
+    "titulo": "Observação de Aves na Mata Atlântica",
+    "data": "JUL 04",
+    "descricao": "Conheça as principais espécies de aves da região com acompanhamento de guias experientes. Ideal para quem curte o contato com a natureza e ama fotografar.",
     "imagem": "evento-aves.jpg"
-  } 
+  },
+  {
+    "id": 2,
+    "titulo": "Dia do Voluntariado Ambiental",
+    "data": "JUL 11",
+    "descricao": "Participe de ações de reflorestamento e limpeza em áreas do Parque. Contribua para a preservação!",
+    "imagem": "evento-voluntarios.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Workshop de Fotografia de Natureza",
+    "data": "JUL 18",
+    "descricao": "Aprenda a capturar paisagens e vida selvagem com técnicas práticas, guiado por fotógrafos especializados no tema.",
+    "imagem": "evento-foto.jpg"
+  }
 ]

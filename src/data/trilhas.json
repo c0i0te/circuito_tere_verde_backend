@@ -1,9 +1,30 @@
 [
   {
     "id": 1,
-    "nome": "Trilha da Pedra do Sino",
+    "nome": "Pedra do Sino",
     "dificuldade": "Alta",
-    "descricao": "Uma das trilhas mais famosas, levando ao ponto mais alto da Serra dos Órgãos, com uma vista deslumbrante.",
+    "descricao": "A mais famosa e desafiadora trilha do Parque Nacional da Serra dos Órgãos, levando ao ponto mais alto de Teresópolis. Vista panorâmica espetacular.",
     "imagem": "trilha-pedra-do-sino.jpg"
+  },
+  {
+    "id": 2,
+    "nome": "Trilha Cartão Postal",
+    "dificuldade": "Média",
+    "descricao": "Uma caminhada mais leve com belas paisagens, perfeita para um passeio em família ou para quem busca vistas icônicas com menor esforço.",
+    "imagem": "trilha-cartao-postal.jpg"
+  },
+  {
+    "id": 3,
+    "nome": "Trilha do Dedo de Deus",
+    "dificuldade": "Alta",
+    "descricao": "Uma trilha icônica que leva a pontos de observação privilegiados do famoso Dedo de Deus, um dos símbolos de Teresópolis.",
+    "imagem": "dedo-de-deus1.jpg"
+  },
+  {
+    "id": 4,
+    "nome": "Trilha dos Deuses",
+    "dificuldade": "Média",
+    "descricao": "Explore a beleza natural da serra por caminhos menos conhecidos, revelando cachoeiras escondidas e flora exuberante.",
+    "imagem": "dedo-de-deus2.jpg"
   }
 ]
