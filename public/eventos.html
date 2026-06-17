@@ -39,71 +39,82 @@
     </section>
 
     <section class="content-page">
-        <div class="container event-container">
-            
-            <div class="event-card fade-in-on-scroll">
-                <div class="event-image">
-                    <img src="images/evento-aves.jpg" alt="Observação de Aves">
-                </div>
-                <div class="event-details">
-                    <div class="event-date-column">
-                        <div class="event-date">
-                            <span>JUl</span>
-                            <strong>04</strong>
-                        </div>
-                        <p class="event-time">Horário: 09:00</p>
-                    </div>
-                    <div class="event-info">
-                        <h3>Observação de Aves na Mata Atlântica</h3>
-                        <p>Conheça as principais espécies de aves da região com acompanhamento de guias experientes. Ideal para quem curte o contato com a natureza e ama fotografar.</p>
-                        <a href="#" class="button">Inscreva-se</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="event-card fade-in-on-scroll">
-                <div class="event-image">
-                    <img src="images/evento-voluntarios.jpg" alt="Dia do Voluntariado Ambiental">
-                </div>
-                <div class="event-details">
-                    <div class="event-date-column">
-                        <div class="event-date">
-                            <span>JUL</span>
-                            <strong>11</strong>
-                        </div>
-                        <p class="event-time">Horário: 10:00</p>
-                    </div>
-                    <div class="event-info">
-                        <h3>Dia do Voluntariado Ambiental</h3>
-                        <p>Participe de ações de reflorestamento e limpeza em áreas do Parque. Contribua para a preservação!</p>
-                        <a href="#" class="button">Inscreva-se</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="event-card fade-in-on-scroll">
-                <div class="event-image">
-                    <img src="images/evento-foto.jpg" alt="Workshop de Fotografia de Natureza">
-                </div>
-                <div class="event-details">
-                    <div class="event-date-column">
-                        <div class="event-date">
-                            <span>JUL</span>
-                            <strong>18</strong>
-                        </div>
-                        <p class="event-time">Horário: 15:00</p>
-                    </div>
-                    <div class="event-info">
-                        <h3>Workshop de Fotografia de Natureza</h3>
-                        <p>Aprenda a capturar paisagens e vida selvagem com técnicas práticas, guiado por fotógrafos especializados no tema.</p>
-                        <a href="#" class="button">Inscreva-se</a>
-                    </div>
-                </div>
-            </div>
-
-            </div>
+        <div class="container event-container" id="eventos-lista-publica">
+            <!-- Os eventos serão carregados dinamicamente via JavaScript -->
+        </div>
     </section>
 </main>
+
+    <!-- Modal de Inscrição em Eventos -->
+    <div id="inscricao-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Inscrição no Evento</h2>
+            <p id="evento-selecionado-nome" class="evento-destaque-nome">Carregando evento...</p>
+            
+            <form id="form-inscricao">
+                <input type="hidden" id="evento-titulo" name="eventoTitulo">
+                
+                <div class="form-group">
+                    <label for="inscrito-nome">Nome Completo:</label>
+                    <input type="text" id="inscrito-nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+                <div class="form-group">
+                    <label for="inscrito-email">E-mail:</label>
+                    <input type="email" id="inscrito-email" name="email" placeholder="seuemail@exemplo.com" required>
+                </div>
+                <div class="form-group">
+                    <label for="inscrito-telefone">Telefone / WhatsApp:</label>
+                    <input type="tel" id="inscrito-telefone" name="telefone" placeholder="(21) 99999-9999" required>
+                </div>
+                <div class="form-group">
+                    <label for="inscrito-idade">Idade:</label>
+                    <input type="number" id="inscrito-idade" name="idade" min="1" max="120" placeholder="Sua idade" required>
+                </div>
+                <div class="form-group">
+                    <label for="inscrito-endereco">Endereço Completo:</label>
+                    <input type="text" id="inscrito-endereco" name="endereco" placeholder="Rua, Número, Bairro, Cidade - UF" required>
+                </div>
+                
+                <button type="submit" class="button">Confirmar Inscrição</button>
+            </form>
+            
+            <!-- Div para mensagens de status (loading/sucesso/erro) -->
+            <div id="inscricao-status" class="login-status-message"></div>
+        </div>
+    </div>
+
+    <!-- Modal de Edição de Evento -->
+    <div id="edicao-evento-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Editar Evento</h2>
+            <form id="form-editar-evento">
+                <input type="hidden" id="edit-evento-id">
+                
+                <div class="form-group">
+                    <label for="edit-evento-titulo">Título do Evento:</label>
+                    <input type="text" id="edit-evento-titulo" name="titulo" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-evento-data">Data (Mês e Dia):</label>
+                    <input type="text" id="edit-evento-data" name="data" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-evento-desc">Descrição do Evento:</label>
+                    <textarea id="edit-evento-desc" name="descricao" rows="3" style="width: 100%; padding: 0.8rem 1rem; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 8px; font-family: 'Poppins'; font-size: 0.95rem;" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-evento-img">Alterar Imagem (Opcional):</label>
+                    <input type="file" id="edit-evento-img" name="imagem" accept="image/*">
+                </div>
+                
+                <button type="submit" class="button">Salvar Alterações</button>
+            </form>
+            
+            <div id="edit-evento-status" class="login-status-message"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">

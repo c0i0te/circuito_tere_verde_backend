@@ -8,6 +8,7 @@ const eventosRoutes = require('./routes/eventosRoutes');
 const trilhasRoutes = require('./routes/trilhasRoutes');
 const biodiversidadeRoutes = require('./routes/biodiversidadeRoutes');
 const authRoutes = require('./routes/authRoutes');
+const inscricoesRoutes = require('./routes/inscricoesRoutes');
 
 const publicDirectoryPath = path.join(__dirname, '../public');
 app.use(express.static(publicDirectoryPath));
@@ -18,6 +19,7 @@ app.use('/api/eventos', eventosRoutes);
 app.use('/api/trilhas', trilhasRoutes);
 app.use('/api/biodiversidade', biodiversidadeRoutes);
 app.use('/api/login', authRoutes);
+app.use('/api/inscricoes', inscricoesRoutes);
 
 app.listen(PORT, () => {
     console.log(`Servidor do Terê Verde Online rodando na porta ${PORT}!`);

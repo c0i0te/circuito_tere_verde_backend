@@ -39,56 +39,54 @@
         </section>
 
         <section class="content-page">
-            <div class="container">
-                <h2 class="section-subtitle">Fauna</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-card fade-in-on-scroll">
-                        <img src="images/fauna-bicho.jpg" alt="Mico-leão-dourado">
-                        <div class="gallery-card-text">
-                            <h3>Bixo preguiça</h3>
-                            <p>Espécie endêmica da Mata Atlântica, ameaçada de extinção e símbolo da conservação.</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-card fade-in-on-scroll">
-                        <img src="images/fauna-tucano.jpg" alt="Tucano-de-bico-preto">
-                        <div class="gallery-card-text">
-                            <h3>Tucano-toco</h3>
-                            <p>Ave exuberante com plumagem colorida, facilmente avistada nas florestas da região.</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-card fade-in-on-scroll">
-                        <img src="images/fauna-micoleao.jpg" alt="Bichos do mato">
-                        <div class="gallery-card-text">
-                            <h3>Mico-leão-dourado</h3>
-                            <p>Espécie endêmica da Mata Atlântica, ameaçada de extinção e símbolo da conservação.</p>
-                        </div>
-                    </div>
-                </div>
-
-                <h2 class="section-subtitle">Flora</h2>
-                <div class="gallery-grid">
-                    <div class="gallery-card fade-in-on-scroll">
-                        <img src="images/flora-bromelia.JPG" alt="Bromélia">
-                        <div class="gallery-card-text">
-                            <h3>Bromélia</h3>
-                            <p>Plantas ornamentais que se destacam pela diversidade de formas e cores, essenciais para o ecossistema.</p>
-                        </div>
-                    </div>
-
-                    <div class="gallery-card fade-in-on-scroll">
-                        <img src="images/flora-orquidea.jpg" alt="Orquídea">
-                        <div class="gallery-card-text">
-                            <h3>Orquídea</h3>
-                            <p>A vasta família das orquídeas apresenta espécies nativas de beleza singular na região.</p>
-                        </div>
-                    </div>
-
-                    </div>
+        <div class="container">
+            <h2 class="section-subtitle">Fauna</h2>
+            <div class="gallery-grid" id="fauna-lista-publica">
+                <!-- Os itens de Fauna serão carregados dinamicamente -->
             </div>
-        </section>
+
+            <h2 class="section-subtitle">Flora</h2>
+            <div class="gallery-grid" id="flora-lista-publica">
+                <!-- Os itens de Flora serão carregados dinamicamente -->
+            </div>
+        </div>
+    </section>
     </main>
+
+    <!-- Modal de Edição de Biodiversidade -->
+    <div id="edicao-bio-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2>Editar Biodiversidade</h2>
+            <form id="form-editar-bio">
+                <input type="hidden" id="edit-bio-id">
+                
+                <div class="form-group">
+                    <label for="edit-bio-tipo">Categoria:</label>
+                    <select id="edit-bio-tipo" name="categoria" style="width: 100%; padding: 0.8rem 1rem; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 8px; font-family: 'Poppins'; font-size: 0.95rem;" required>
+                        <option value="Fauna">Fauna (Animais)</option>
+                        <option value="Flora">Flora (Plantas)</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-bio-nome">Nome da Espécie:</label>
+                    <input type="text" id="edit-bio-nome" name="especie" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-bio-desc">Descrição:</label>
+                    <textarea id="edit-bio-desc" name="descricao" rows="3" style="width: 100%; padding: 0.8rem 1rem; border: 1px solid rgba(0, 0, 0, 0.15); border-radius: 8px; font-family: 'Poppins'; font-size: 0.95rem;" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="edit-bio-img">Alterar Imagem (Opcional):</label>
+                    <input type="file" id="edit-bio-img" name="imagem" accept="image/*">
+                </div>
+                
+                <button type="submit" class="button">Salvar Alterações</button>
+            </form>
+            
+            <div id="edit-bio-status" class="login-status-message"></div>
+        </div>
+    </div>
 
     <footer>
         <div class="container">
