@@ -6,6 +6,3 @@ node_modules
 
 # Arquivos de log de erros do npm (caso ocorram)
 npm-debug.log
-
-# Pasta com as skills utilizadas no projeto
-skills
