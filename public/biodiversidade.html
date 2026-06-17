@@ -3,17 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biodiversidade - Terê Verde Online</title>
+    <title>Terê Verde Online - Biodiversidade</title>
+
     <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="images/logotv.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
+<body class="animated-page-title">
 
-<body>
     <header>
         <div class="container">
-            <a href="index.html" class="logo">Terê Verde</a>
+            <a href="index.html" class="logo-with-image">
+                <img src="images/logotv.svg" alt="Logo Projeto Terê Verde">
+                <span>Terê Verde</span>
+            </a>
+            
             <nav>
                 <ul>
                     <li><a href="trilhas.html">Trilhas</a></li>
@@ -28,50 +34,58 @@
     <main>
         <section class="page-title">
             <div class="container">
-                <h1>Fauna e Flora</h1>
-                <p>A riqueza natural de Teresópolis.</p>
+                <h1>Biodiversidade de Teresópolis</h1>
             </div>
         </section>
-    
+
         <section class="content-page">
             <div class="container">
-                
                 <h2 class="section-subtitle">Fauna</h2>
                 <div class="gallery-grid">
-                    <div class="gallery-card">
-                        <img src="images/fauna-mico.jpg" alt="Mico-leão-dourado em um galho de árvore">
+                    <div class="gallery-card fade-in-on-scroll">
+                        <img src="images/fauna-bicho.jpg" alt="Mico-leão-dourado">
                         <div class="gallery-card-text">
-                            <h3>Bicho-Preguiça</h3>
-                            <p>Espécie nativa da Mata Atlântica. Costuma habitar as florestas e áreas montanhosas, como o parque nacional. </p>
+                            <h3>Bixo preguiça</h3>
+                            <p>Espécie endêmica da Mata Atlântica, ameaçada de extinção e símbolo da conservação.</p>
                         </div>
                     </div>
-                    <div class="gallery-card">
-                        <img src="images/fauna-tucano.jpg" alt="Tucano-toco com seu bico laranja vibrante">
+
+                    <div class="gallery-card fade-in-on-scroll">
+                        <img src="images/fauna-tucano.jpg" alt="Tucano-de-bico-preto">
                         <div class="gallery-card-text">
                             <h3>Tucano-toco</h3>
-                            <p>Facilmente reconhecido por seu enorme bico colorido, é uma das aves mais espetaculares da região.</p>
+                            <p>Ave exuberante com plumagem colorida, facilmente avistada nas florestas da região.</p>
+                        </div>
+                    </div>
+
+                    <div class="gallery-card fade-in-on-scroll">
+                        <img src="images/fauna-micoleao.jpg" alt="Bichos do mato">
+                        <div class="gallery-card-text">
+                            <h3>Mico-leão-dourado</h3>
+                            <p>Espécie endêmica da Mata Atlântica, ameaçada de extinção e símbolo da conservação.</p>
                         </div>
                     </div>
                 </div>
-    
+
                 <h2 class="section-subtitle">Flora</h2>
                 <div class="gallery-grid">
-                     <div class="gallery-card">
-                        <img src="images/flora-orquidea.jpg" alt="Orquídea colorida crescendo no tronco de uma árvore">
+                    <div class="gallery-card fade-in-on-scroll">
+                        <img src="images/flora-bromelia.JPG" alt="Bromélia">
                         <div class="gallery-card-text">
-                            <h3>Orquídeas</h3>
-                            <p>Uma variedade imensa de orquídeas de diferentes cores e formas adornam as árvores locais.</p>
+                            <h3>Bromélia</h3>
+                            <p>Plantas ornamentais que se destacam pela diversidade de formas e cores, essenciais para o ecossistema.</p>
                         </div>
                     </div>
-                    <div class="gallery-card">
-                        <img src="images/flora-bromelia.jpg" alt="Bromélia com suas folhas verdes e uma flor vermelha no centro">
+
+                    <div class="gallery-card fade-in-on-scroll">
+                        <img src="images/flora-orquidea.jpg" alt="Orquídea">
                         <div class="gallery-card-text">
-                            <h3>Bromélias</h3>
-                            <p>Essas plantas acumulam água em suas folhas, criando pequenos ecossistemas para insetos e anfíbios.</p>
+                            <h3>Orquídea</h3>
+                            <p>A vasta família das orquídeas apresenta espécies nativas de beleza singular na região.</p>
                         </div>
                     </div>
-                </div>
-    
+
+                    </div>
             </div>
         </section>
     </main>
@@ -83,6 +97,5 @@
     </footer>
 
     <script src="js/script.js"></script>
-
 </body>
 </html>
