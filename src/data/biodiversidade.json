@@ -2,8 +2,36 @@
   {
     "id": 1,
     "categoria": "Fauna",
-    "nome": "Bicho-Preguiça",
-    "descricao": "Espécie nativa da Mata Atlântica. Costuma habitar as florestas e áreas montanhosas, como o parque nacional.",
-    "imagem": "fauna-mico.jpg"
+    "especie": "Bixo preguiça",
+    "descricao": "Espécie endêmica da Mata Atlântica, ameaçada de extinção e símbolo da conservação.",
+    "imagem": "fauna-bicho.jpg"
+  },
+  {
+    "id": 2,
+    "categoria": "Fauna",
+    "especie": "Tucano-toco",
+    "descricao": "Ave exuberante com plumagem colorida, facilmente avistada nas florestas da região.",
+    "imagem": "fauna-tucano.jpg"
+  },
+  {
+    "id": 3,
+    "categoria": "Fauna",
+    "especie": "Mico-leão-dourado",
+    "descricao": "Espécie endêmica da Mata Atlântica, ameaçada de extinção e símbolo da conservação.",
+    "imagem": "fauna-micoleao.jpg"
+  },
+  {
+    "id": 4,
+    "categoria": "Flora",
+    "especie": "Bromélia",
+    "descricao": "Plantas ornamentais que se destacam pela diversidade de formas e cores, essenciais para o ecossistema.",
+    "imagem": "flora-bromelia.JPG"
+  },
+  {
+    "id": 5,
+    "categoria": "Flora",
+    "especie": "Orquídea",
+    "descricao": "A vasta família das orquídeas apresenta espécies nativas de beleza singular na região.",
+    "imagem": "flora-orquidea.jpg"
   }
 ]
