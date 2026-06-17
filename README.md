@@ -55,14 +55,6 @@ images/           → imagens e assets
 ### Área Administrativa
 Acessível via `/login.html`, protegida por credenciais cadastradas no sistema.
 
-| Regra | Descrição |
-|---|---|
-| **RN01 — Autenticação** | Login com credenciais administrativas previamente cadastradas |
-| **RN02 — Proteção de Rotas** | Endpoints sensíveis bloqueados para usuários não autenticados |
-| **RN03 — Controle de Sessão** | Uso de `sessionStorage` no cliente para validação da sessão do administrador |
-| **RN04 — Upload de Mídia** | Imagens nomeadas com prefixo `Date.now()` para evitar conflito de arquivos |
-| **RN05 — IDs Automáticos** | Identificadores gerados automaticamente pelo servidor a cada novo cadastro |
-
 O administrador possui **CRUD completo** de Trilhas, Eventos e Itens de Biodiversidade.
 
 ---
@@ -83,7 +75,7 @@ npm install
 npm start
 ```
 
-Acesse **http://localhost:3000** no navegador.
+Acesse **http://localhost:4000** no navegador.
 
 ---
 
